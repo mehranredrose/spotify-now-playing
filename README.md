@@ -16,13 +16,14 @@ Display your currently playing Spotify track in your GitHub profile README autom
 ## Repository Structure
 
 Your repository should look like this:
-
+```
 your-repo/
 ├── README.md
 ├── nowplaying.py # Python script that fetches current track
 └── .github/
       └── workflows/
              └── spotify.yml
+```
 
 # GitHub Actions workflow
 
@@ -80,11 +81,11 @@ Example:
 Upload nowplaying.py to the root of your repository.
 
 Upload .github/workflows/spotify.yml to the workflow folder:
-
-.github/
-  └── workflows/
-        └── spotify.yml
-
+```
+.github/ 
+    └── workflows/ 
+              └── spotify.yml
+```
 ### 5. Test Locally (Optional)
 
 Before pushing to GitHub:
