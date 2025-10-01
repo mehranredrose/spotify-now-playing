@@ -76,6 +76,8 @@ Example:
 
 <!-- SPOTIFY -->Loading...<!-- END_SPOTIFY -->
 
+---
+
 ### 4. Place the Python Script and Workflow
 
 Upload nowplaying.py to the root of your repository.
@@ -86,6 +88,9 @@ Upload .github/workflows/spotify.yml to the workflow folder:
     └── workflows/ 
               └── spotify.yml
 ```
+
+---
+
 ### 5. Test Locally (Optional)
 
 Before pushing to GitHub:
@@ -99,6 +104,8 @@ cat spotify.txt
 
 - This should show your currently playing track.
 
+---
+
 ### 6. Run Workflow on GitHub
 
    1. Commit and push all files (nowplaying.py, .yml, README.md).
@@ -106,6 +113,8 @@ cat spotify.txt
    2. Go to Actions tab → Update Spotify Now Playing → Run workflow.
 
    3. After it runs, your README placeholder will be replaced with your current song.
+
+---
 
 ### 7. Example Output
 
