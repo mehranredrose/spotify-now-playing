@@ -1,0 +1,35 @@
+name: Update Spotify Now Playing
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # every 5 minutes
+  workflow_dispatch: # allows manual run from GitHub UI
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run script
+        run: python nowplaying.py
+
+      - name: Update README
+        run: |
+          NOWPLAYING=$(cat spotify.txt)
+          sed -i "s|<!-- SPOTIFY -->.*<!-- END_SPOTIFY -->|<!-- SPOTIFY -->$NOWPLAYING<!-- END_SPOTIFY -->|" README.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update Spotify now playing"
+          git push
