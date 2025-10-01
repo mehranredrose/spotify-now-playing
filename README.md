@@ -1,7 +1,3 @@
-# spotify-now-playing
-
-Display your currently playing Spotify track in your GitHub profile README automatically using GitHub Actions and Spotify API.
-
 # Spotify Now Playing on GitHub Profile
 
 Display your currently playing Spotify track in your GitHub profile README automatically using GitHub Actions and the Spotify API.
@@ -25,8 +21,8 @@ your-repo/
 ├── README.md
 ├── nowplaying.py # Python script that fetches current track
 └── .github/
-└── workflows/
-└── spotify.yml
+      └── workflows/
+             └── spotify.yml
 
 # GitHub Actions workflow
 
@@ -71,6 +67,7 @@ Add this placeholder in your `README.md` where you want your current song to app
 - Loading... → default text
 
 - <!-- END_SPOTIFY --> → end marker
+```
 
 Example:
 
@@ -78,30 +75,30 @@ Example:
 
 <!-- SPOTIFY -->Loading...<!-- END_SPOTIFY -->
 
-4. Place the Python Script and Workflow
+### 4. Place the Python Script and Workflow
 
 Upload nowplaying.py to the root of your repository.
 
 Upload .github/workflows/spotify.yml to the workflow folder:
 
 .github/
-└── workflows/
-└── spotify.yml
-```
+  └── workflows/
+        └── spotify.yml
 
-5. Test Locally (Optional)
+### 5. Test Locally (Optional)
 
 Before pushing to GitHub:
-
+```md
 export SPOTIFY_CLIENT_ID="your_client_id"
 export SPOTIFY_CLIENT_SECRET="your_client_secret"
 export SPOTIFY_REFRESH_TOKEN="your_refresh_token"
 python nowplaying.py
 cat spotify.txt
+```
 
 - This should show your currently playing track.
 
-6. Run Workflow on GitHub
+### 6. Run Workflow on GitHub
 
    1. Commit and push all files (nowplaying.py, .yml, README.md).
 
@@ -109,7 +106,7 @@ cat spotify.txt
 
    3. After it runs, your README placeholder will be replaced with your current song.
 
-7. Example Output
+### 7. Example Output
 
 After workflow runs, your README will show:
 
@@ -119,10 +116,10 @@ or if nothing is playing:
 
 🎧 Not playing anything
 
-Notes
+### Notes
 
-Make sure your GitHub Actions secrets are correct — otherwise the workflow will fail.
+- Make sure your GitHub Actions secrets are correct — otherwise the workflow will fail.
 
-Workflow runs every 5 minutes automatically.
+- Workflow runs every 5 minutes automatically.
 
-No sensitive information is exposed in your README — only your currently playing track.
+- No sensitive information is exposed in your README — only your currently playing track.
